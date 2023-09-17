@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+<meta charset=“UTF-8”>
+<title>Timer</title>
+</head>
+<body>
+	<button id="btnStart">Запустить таймер</button>
+	<button id="btnStop">Остановить таймер</button>
+	
+	<p id="countdown">10</p>
+<script>
+function decrementCounter() {
+    let countdown = document.getElementById("countdown");
+    if (countdown.innerHTML > 0) {
+        countdown.innerHTML = Number(countdown.innerHTML) - 1;
+    } else {
+        clearInterval(timer);
+        document.getElementById("btnStart").disabled = true;
+        document.getElementById("btnStop").disabled = false;
+    }
+}
+
+const btnStart = document.getElementById('btnStart');
+btnStart.addEventListener('click', () => {
+    btnStart.disabled = true;
+    btnStop.disabled = false;
+
+    const timer = setInterval(decrementCounter, 1000);
+});
+
+const btnStop = document.getElementById('btnStop');
+</script>
+</body>
+</html>

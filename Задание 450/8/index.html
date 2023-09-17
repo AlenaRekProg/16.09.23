@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      
+      document.getElementById('clock').textContent = timeString;
+    }
+    
+    // Обновлять время каждую секунду
+    setInterval(updateClock, 1000);
+  </script>
+</head>
+<body>
+  <p>Текущее время: <span id="clock"></span></p>
+</body>
+</html>

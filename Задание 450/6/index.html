@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+</head>
+<body>
+	<p id=“timer-text”>Таймер запущен!</p>
+	<button id=“start-stop-button”>Старт/Стоп</button>
+	
+	<script>
+const timerText = document.getElementById("timer-text");
+const startStopButton = document.getElementById("start-stop-button");
+let timer;
+
+startStopButton.addEventListener("click", () => {
+  if (timer) {
+    clearInterval(timer);
+    timer = undefined;
+    startStopButton.innerText = "Старт";
+  } else {
+    timer = setInterval(() => {
+      const num = parseInt(timerText.innerText);
+      if (isNaN(num) || num === Infinity) {
+        timerText.innerText = 1;
+      } else {
+        const nextNum = num + 1;
+        timerText.innerText = nextNum;
+      }
+    }, 1000);
+    startStopButton.innerText = "Стоп";
+  }
+});
+</script>
+</body>
+</html>

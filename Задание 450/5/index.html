@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=“utf-8”>
+<title>Countdown</title>
+</head>
+<body>
+<input type=“number” id=“numberInput”><br><br>
+
+<button type="button" id="startButton">Start Countdown</button>
+
+<p id="countdownDisplay">0</p>
+
+<script>
+    document.getElementById("startButton").addEventListener("click", function() {
+        let number = document.getElementById("numberInput").val;
+        document.getElementById("countdownDisplay").innerHTML = number;
+
+        let countdown = setInterval(function() {
+            let currentNumber = parseInt(document.getElementById("countdownDisplay").innerHTML);
+
+            if (currentNumber === 0) {
+                clearInterval(countdown);
+            } else {
+                document.getElementById("countdownDisplay").innerHTML = currentNumber - 1;
+            }
+        }, 1000);
+    });
+</script>
+</body>
+</html>

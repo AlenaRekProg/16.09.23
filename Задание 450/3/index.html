@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<meta charset=“UTF-8”>
+<title>Timer</title>
+</head>
+<body>
+<button id="btn">Start Timer</button>
+<p id="number">2</p>
+
+<script>
+document.getElementById('btn').addEventListener('click', startTimer);
+
+function startTimer() {
+    let numberElement = document.getElementById('number');
+    const interval = setInterval(function() {
+        let currentNumber = parseInt(numberElement.innerHTML) || 0;
+        numberElement.innerText = currentNumber**2;
+    }, 1000);
+}
+</script>
+</body>
+</html>
